@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.c" />
+    <ClCompile Include="Makefile" />
+    <ClCompile Include="io\io_utils.c" />
+    <ClCompile Include="tree_node\node.c" />
+    <ClCompile Include="tree_schema\tree_schema.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\io_utils.h" />
+    <ClInclude Include="headers\node.h" />
+  </ItemGroup>
+</Project>
