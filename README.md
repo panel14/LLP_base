@@ -9,4 +9,4 @@
   + Заголовок содержит служебную информацию - размер ведра, смещение относительно начала файла и тд.
 
 Схема основного файла:
-![alt-text](https://drive.google.com/file/d/1qO_QwgrS2EGpEBTBd7f87ZDGLBLBm2KC/view?usp=share_link)
+![Alt-text](https://drive.google.com/file/d/1qO_QwgrS2EGpEBTBd7f87ZDGLBLBm2KC/view?usp=share_link)
