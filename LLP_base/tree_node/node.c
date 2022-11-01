@@ -1,30 +1,33 @@
 
-struct cell_header {
-
-	int size;
-};
-
-struct key_node {
-
-	struct cell_header header;
-	char* node_name;
-	int parrent_offset;
-	int subkeys_offset;
-	int key_values_offset;
-};
-
 enum data_type {
+
 	INT,
 	DOUBLE,
 	STRING,
 	BOOL
 };
 
-struct key_value {
+struct key_node {
 
-	struct cell_header header;
-	char* value_name;
-	int data_size;
-	enum data_type type;
-	double data_offset;
+	char* node_name;
+	key_node* parrent_node;
+	key_node* subkey_nodes;
+	node_attribute_info* attributes;
+};
+
+struct node_attribute_info {
+
+	int index;
+	int raw_size;
+	int raw_offset;
+	char* name;
+	data_type type;
+	struct attribute_data* data;
+	struct node_attribute* next;
+};
+
+struct attribute_data {
+
+	int size;
+	byte* data;
 };
