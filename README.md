@@ -37,7 +37,7 @@
 [update]
 Базовые структуры для хранения в памяти - node_attribute и tree_schema
 node_attribute описывает свойства, которые может содержать узел:
-###node_attribute
+### node_attribute
 | Attribute | Discription |
 |:----|:--------|
 | index | Номер свойства |
@@ -48,7 +48,7 @@ node_attribute описывает свойства, которые может с
 | data | Ссылка на структуру attribute_data |
 | next | Ссылка на следуюее свойство вершин node_attribute |
 
-###tree_schema
+### tree_schema
 | Attribute | Discription |
 |:----|:--------|
 | raw_tree_size | Размер дерева (со всеми вершинами) |
@@ -58,7 +58,7 @@ node_attribute описывает свойства, которые может с
 
 Вспомогательная структура attribute_data предназначена для хранения данных
 
-###attribute_data
+### attribute_data
 | Attribute | Discription |
 |:----|:--------|
 | size | Размер данных в байтах |
