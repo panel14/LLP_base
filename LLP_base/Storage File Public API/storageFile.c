@@ -8,7 +8,7 @@ int storageRetrive(int sd, char * filename) {
 	return 0;
 }
 
-int storageInsert(int sd, ) {
+int storageInsert(int sd) {
 	return 0;
 }
 

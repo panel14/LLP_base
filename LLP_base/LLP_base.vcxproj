@@ -92,16 +92,25 @@
     <CleanCommandLine>make clean</CleanCommandLine>
     <LocalBuildOutputs>output</LocalBuildOutputs>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <RemoteBuildCommandLine>make build</RemoteBuildCommandLine>
+    <RemoteReBuildCommandLine>make rebuild</RemoteReBuildCommandLine>
+    <RemoteCleanCommandLine>make clean</RemoteCleanCommandLine>
+    <RemoteBuildOutputs>/home/locci/projects/LLP_base/app</RemoteBuildOutputs>
+  </PropertyGroup>
   <ItemGroup>
-    <ClCompile Include="io\io_utils.c" />
+    <ClCompile Include="Data File API\dataFile.c" />
+    <ClCompile Include="OSFile API\osFile.c" />
+    <ClCompile Include="Storage File Public API\storageFile.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Makefile" />
     <ClCompile Include="tree_node\node.c" />
     <ClCompile Include="tree_schema\tree_schema.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\io_utils.h" />
     <ClInclude Include="headers\node.h" />
+    <ClInclude Include="headers\osFile.h" />
+    <ClInclude Include="headers\iStorageFile.h" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

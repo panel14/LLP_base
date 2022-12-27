@@ -3,12 +3,15 @@
   <ItemGroup>
     <ClCompile Include="main.c" />
     <ClCompile Include="Makefile" />
-    <ClCompile Include="io\io_utils.c" />
     <ClCompile Include="tree_node\node.c" />
     <ClCompile Include="tree_schema\tree_schema.c" />
+    <ClCompile Include="Storage File Public API\storageFile.c" />
+    <ClCompile Include="OSFile API\osFile.c" />
+    <ClCompile Include="Data File API\dataFile.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\io_utils.h" />
     <ClInclude Include="headers\node.h" />
+    <ClInclude Include="headers\iStorageFile.h" />
+    <ClInclude Include="headers\osFile.h" />
   </ItemGroup>
 </Project>
