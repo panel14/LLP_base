@@ -101,15 +101,16 @@
   <ItemGroup>
     <ClCompile Include="Data File API\dataFile.c" />
     <ClCompile Include="OSFile API\osFile.c" />
-    <ClCompile Include="Storage File Public API\storageFile.c" />
+    <ClCompile Include="query API\query.c" />
+    <ClCompile Include="Storage File Inner API\storageFileInner.c" />
+    <ClCompile Include="Storage File Public API\storageFilePublic.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Makefile" />
-    <ClCompile Include="tree_node\node.c" />
     <ClCompile Include="tree_schema\tree_schema.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\node.h" />
-    <ClInclude Include="headers\osFile.h" />
+    <ClInclude Include="tree_node\node.h" />
+    <ClInclude Include="OSFile API\osFile.h" />
     <ClInclude Include="headers\iStorageFile.h" />
   </ItemGroup>
   <ItemDefinitionGroup />

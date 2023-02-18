@@ -11,7 +11,7 @@ struct key_node {
 	char* node_name;
 	struct key_node* parrent_node;
 	struct key_node* subkey_nodes;
-	struct node_attribute_info* attributes;
+	struct attribute_data* data;
 };
 
 struct node_attribute_info {
@@ -21,12 +21,11 @@ struct node_attribute_info {
 	int raw_offset;
 	char* name;
 	enum data_type type;
-	struct attribute_data* data;
-	struct node_attribute* next;
+	struct node_attribute_info* next;
 };
 
 struct attribute_data {
 
 	int size;
-	unsigned char * data;
+	unsigned char* data;
 };

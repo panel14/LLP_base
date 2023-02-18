@@ -1,5 +1,5 @@
 #pragma once
-#include "storageFile.c"
+#include "storageFilePublic.c"
 
 int storageOpenOrCreate(char* filename);
 int storageRetrive(int sd, char* filename);

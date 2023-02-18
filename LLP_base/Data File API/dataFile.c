@@ -20,11 +20,13 @@ int freePage(int pageNum) {
 }
 
 int readPage(FILE* file, int pageNum, unsigned char* buffer) {
+	//Нужна проверка на существование страницы с данным номером
 	long pageOffset = getPageOffset(pageNum);
 	return readFile(file, buffer, pageOffset, PAGE_SIZE);
 }
 
 int writePage(FILE* file, int pageNum, unsigned char* buffer) {
+	//Нужна проверка на существование страницы с данным номером
 	long pageOffset = getPageOffset(pageNum);
 	return writeFile(file, buffer, pageOffset, PAGE_SIZE);
 }
