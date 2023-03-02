@@ -1,0 +1,21 @@
+CC=gcc
+
+BUILDDIR=build
+SRCDIR=src
+TARGETDIR=.
+
+#SOURCES=C:\Users\verzz\source\repos\LLP_base\LLP_base\src\main.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\DataFileAPI\dataFile.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\OSFileAPI\osFile.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\StorageFileInnerAPI\storageBaseApi.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\StorageFileInnerAPI\storageFileInner.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\StorageFilePublicAPI\storageFilePublic.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\UserAPI\InteractiveMode\interactiveMode.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\Utils\initializer.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\Utils\parser.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\Utils\sstring.c
+SOURCES=$(wildcard src/*.c) $(wildcard src/*/*.c) $(wildcard src/*/*/*.c) $(wildcard src/*/*/*/*.c)
+EXECUTABLE=main
+
+.PHONY: all
+all: build run
+run:
+	./$(EXECUTABLE)
+
+build: $(EXECUTABLE)
+
+$(EXECUTABLE): $(SOURCES)
+	$(CC) $(SOURCES) -o $@
+clean:
+	del -rf $(BUILDDIR) $(EXECUTABLE)
