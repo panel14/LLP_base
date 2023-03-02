@@ -17,7 +17,7 @@ void initFile(FILE* fp) {
     size_t* sizes = malloc(count * sizeof(size_t));
     size_t temp_size;
     for (size_t iter = 0; iter < count; iter++) {
-        printf("<---- Attribute %-3zu ---->\n", iter + 1);
+        printf("<---- Attribute N%-3zu ---->\n", iter + 1);
         str = malloc(INPUT_SIZE);
         printf("Attribute name: ");
         scanf("%s", str);
@@ -120,7 +120,7 @@ void start(FILE* fp) {
         }
         else if (strcmp(argv[0], "print") == 0) {
             if (count == 2) {
-                if (strcmp(argv[1], "tree schema") == 0) printTreeSchema(fp);
+                if (strcmp(argv[1], "schema") == 0) printTreeSchema(fp);
                 else if (strcmp(argv[1], "nodes") == 0) printNodesFrom(fp);
                 else printf("Incorrect parameter ([print header]/[print array]).\n");
             }
