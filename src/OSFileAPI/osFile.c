@@ -12,8 +12,8 @@ void closeFile(FILE *fp) {
 enum readStatus readFile(FILE* fp, void* buffer, size_t size) {
 	size_t len = fread(buffer, size, 1, fp);
 
-	if (len != 1) return READ_LEN_ERROR;
-	if (feof(fp)) return READ_UNEXPECTED_EOF;
+	if (len < 1) return READ_LEN_ERROR;
+	else if (sizeof(buffer) < len) return READ_UNEXPECTED_EOF;
 
 	return READ_SUCCESS;
 }
@@ -21,14 +21,12 @@ enum readStatus readFile(FILE* fp, void* buffer, size_t size) {
 enum writeStatus writeFile(FILE* fp, void* buffer, size_t size) {
 	size_t len = fwrite(buffer, size, 1, fp);
 
-	if (len != 1) return WRITE_LEN_ERROR;
-	if (feof(fp)) return WRITE_UNEXPECTED_EOF;
+	if (len < 1) return WRITE_LEN_ERROR;
+	else if (sizeof(buffer) < len) return WRITE_UNEXPECTED_EOF;
 
 	return WRITE_SUCCESS;
 }
 
 int deleteFile(char* filename) {
-	printf("Closing file\n");
 	return remove(filename);
-	printf("File closed\n");
 }

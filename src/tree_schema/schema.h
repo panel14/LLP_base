@@ -15,6 +15,10 @@ enum dataType {
 };
 
 struct treeMeta {
+	uint64_t ASCIISign;
+	uint64_t rootOffset;
+	uint64_t firstSeq;
+	uint64_t secondSeq;
 	uint64_t curId;
 	uint64_t templateSize;
 };
