@@ -24,13 +24,13 @@ size_t split(char* str, const char chr, char*** arr) {
 	return count;
 }
 
-int isNumeric(const char* str) {
+bool isNumeric(const char* str) {
 	while (*str != '\0' && *str != 13) {
 		if (*str < '0' || *str > '9') 
-			return 1;
+			return false;
 		str++;
 	}
-	return 0;
+	return true;
 }
 
 char* concat(const char* str1, const char* str2) {
