@@ -187,7 +187,8 @@ void freeTreeSchema(struct treeSchema* schema) {
 		free(schema->nodesTemplate[i]);
 	}
 
-	free(schema->meta);
 	free(schema->nodesTemplate);
 	free(schema->root);
+	free(schema->meta);
+	free(schema);
 }

@@ -11,13 +11,14 @@ void getTypes(FILE* fp, enum dataType** types, size_t* size) {
     struct treeSchema* schema = malloc(SCHEMA_SIZE);
     readTreeSchema(schema, fp);
     
-    uint64_t templateSize = schema->meta->templateSize;
-    enum dataType* tmpTypes = malloc(templateSize * sizeof(enum dataType));
+    enum dataType* tmpTypes = malloc(schema->meta->templateSize * sizeof(enum dataType));
 
-    for (size_t i = 0; i < templateSize; i++) {
+    for (size_t i = 0; i < schema->meta->templateSize; i++) {
         tmpTypes[i] = schema->nodesTemplate[i]->header->type;
     }
-    *types = tmpTypes; *size = templateSize;
+
+    *types = tmpTypes; 
+    *size = schema->meta->templateSize;
     freeTreeSchema(schema);
 }
 

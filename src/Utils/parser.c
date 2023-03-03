@@ -25,11 +25,7 @@ void parseFile(FILE* to, FILE* from) {
 		char* prefix = concat("add ", line);
 		split(prefix, ' ', &args);
 
-		size_t code = storageInsertNode(to, args, templateSize, types, attrNames);
-
-		if (code != 0) {
-			printf("Error code %zu\nIn line: %s\n", code, line);
-		}
+		storageInsertNode(to, args, templateSize, types, attrNames);
 		free(prefix);
 		free(args);
 		fgets(line, INPUT_SIZE, from);
