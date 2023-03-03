@@ -5,7 +5,7 @@ size_t split(char* str, const char c, char*** arr) {
 	int i = 0;
 	char* p;
 
-	ptr = str;
+	p = str;
 
 	while (*p != '\n' && *p != '\0') {
 		if (*p == c) count++;

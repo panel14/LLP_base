@@ -40,7 +40,7 @@ static size_t getStringLenght(FILE* fp, size_t offset) {
 size_t getRealNodeSize(uint64_t size) {
 	return size * SINGLE_NODE_SIZE < MIN_NODE_SIZE
 		? MIN_NODE_SIZE
-		: SINGLE_NODE_SIZE;
+		: size * SINGLE_NODE_SIZE;
 }
 
 size_t getIdArraySize(uint64_t attrSize, uint64_t curId) {
