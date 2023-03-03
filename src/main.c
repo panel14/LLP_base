@@ -37,9 +37,11 @@ int main(int argc, char** argv) {
 
 	case 'p':
 		storageOpenOrCreateFile(v, "r", &parsed);
+
 		storageOpenOrCreateFile(filename, "w", &fp);
 		storageCloseFile(fp);
 		storageOpenOrCreateFile(filename, "r+b", &fp);
+
 		initFile(fp);
 		parseFile(fp, parsed);
 		break;

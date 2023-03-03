@@ -261,6 +261,18 @@ void printTreeSchema(FILE* fp) {
     struct treeSchema* schema = malloc(SCHEMA_SIZE);
     readTreeSchema(schema, fp);
 
+    printf("<----- Tree schema ----->\n");
+    printf("%-20s%ld\n", "Current ID: ", schema->meta->curId);
+    printf("%-20s%ld\n", "Template size: ", schema->meta->templateSize);
+
+    printf("<----- Template ----->\n");
+
+    for (size_t i = 0; i < schema->meta->templateSize; i++) {
+        printf("Key %3d [Type %3d]: %s\n", schema->nodesTemplate[i]->header->size,
+                                           schema->nodesTemplate[i]->header->type,
+                                           schema->nodesTemplate[i]->attributeName);
+    }
+
     size_t realIdArraySize = getIdArraySize(schema->meta->templateSize, schema->meta->curId);
     for (size_t i = 0; i < (schema->meta->templateSize / PRINTED_LEN); i++) {
         for (size_t j = 0; j < PRINTED_LEN; j++) {
