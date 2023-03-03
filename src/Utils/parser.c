@@ -22,7 +22,7 @@ void parseFile(FILE* to, FILE* from) {
 	while (!feof(from)) {
 		if (strlen(line) == 0) break;
 		line[strlen(line) - 1] = '\0';
-		char* prefix = concat("add", line);
+		char* prefix = concat("add ", line);
 		split(prefix, ' ', &args);
 
 		size_t code = storageInsertNode(to, args, templateSize, types, attrNames);
