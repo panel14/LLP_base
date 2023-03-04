@@ -20,7 +20,7 @@ static enum readStatus readTreeMeta(struct treeMeta* meta, FILE* fp) {
 	return readFile(fp, meta, META_SIZE);
 }
 
-static size_t getStringLenght(FILE* fp, size_t offset) {
+static size_t getStringLenght(FILE* fp, uint64_t offset) {
 	fseek(fp, offset, SEEK_SET);
 	size_t lenght = 1;
 	union nodeHeader* header = malloc(NODE_HEAD_SIZE);
@@ -74,6 +74,8 @@ enum readStatus readTreeSchema(struct treeSchema* schema, FILE* fp) {
 	uint64_t* idArray = (uint64_t*)malloc(realIdArraySize * sizeof(uint64_t));
 	schema->root = idArray;
 	ret |= readFile(fp, idArray, realIdArraySize * sizeof(uint64_t));
+
+	return ret;
 }
 
 enum readStatus readNode(FILE* fp, struct keyNode** node, uint64_t size, enum nodeType type) {
@@ -87,10 +89,10 @@ enum readStatus readNode(FILE* fp, struct keyNode** node, uint64_t size, enum no
 	size_t realSize = getRealNodeSize(size);
 
 	uint64_t* data;
-	if (type == NODE_TYPE_USUAL) data = malloc(realSize);
-	else data = (uint64_t*)malloc(realSize);
+	if (type == NODE_TYPE_USUAL) data = malloc(getRealNodeSize(realSize));
+	else data = (uint64_t*)malloc(getRealNodeSize(realSize));
 
-	ret |= readFile(fp, data, realSize);
+	ret |= readFile(fp, data, getRealNodeSize(realSize));
 	tmp->data = data;
 
 	*node = tmp;
@@ -138,10 +140,12 @@ enum writeStatus writeRoot(FILE* fp, uint64_t* seq, size_t size) {
 
 enum writeStatus writeTreeSchema(FILE* fp, struct treeSchema* schema) {
 	fseek(fp, 0, SEEK_SET);
+	size_t templateSize = schema->meta->templateSize;
+
 	enum writeStatus ret = writeTreeMeta(fp, schema->meta);
 
 	fseek(fp, META_SIZE, SEEK_SET);
-	ret |= writeAttributesTemplate(fp, schema->nodesTemplate, schema->meta->templateSize);
+	ret |= writeAttributesTemplate(fp, schema->nodesTemplate, templateSize);
 
 	size_t realSize = getIdArraySize(schema->meta->templateSize, schema->meta->curId);
 	ret |= writeRoot(fp, schema->root, realSize * sizeof(uint64_t));

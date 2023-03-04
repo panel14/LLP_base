@@ -1,12 +1,16 @@
 #include "initializer.h"
 
 static void createEmptyTreeMeta(struct treeMeta* meta, size_t size) {
+	meta->ASCIISign = 0xFFFE;
+	meta->firstSeq = 0;
+	meta->secondSeq = 0;
 	meta->templateSize = (uint64_t)size;
 	meta->curId = 0;
+	meta->rootOffset;
 }
 
 static void copyStr(char* src, char* dest, size_t srcSize, size_t destSize) {
-	while (srcSize-- && destSize--) *(dest++) = *(src++);
+	while (destSize-- && srcSize--) *(dest++) = *(src++);
 }
 
 static void createEmptyAttrTemplate(struct nodeAttributeInfo** attrs, char** template, enum dataType* types, size_t templateSize, size_t* attrSizes) {
@@ -31,7 +35,7 @@ void createEmptyTreeSchema(char** template, enum dataType* types, size_t templat
 	schema->meta = malloc(META_SIZE);
 	createEmptyTreeMeta(schema->meta, templateSize);
 
-	schema->nodesTemplate = malloc(ATTR_INFO_SIZE);
+	schema->nodesTemplate = malloc(sizeof(struct nodeAttributeInfo*) * templateSize);
 	createEmptyAttrTemplate(schema->nodesTemplate, template, types, templateSize, attrSizes);
 
 	size_t arrSize = getIdArraySize(schema->meta->templateSize, schema->meta->curId);

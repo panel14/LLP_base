@@ -3,7 +3,6 @@
 #include "Utils/parser.h"
 
 int main(int argc, char** argv) {
-	printf("Launch program\n");
 	char* filename;
 	char* v;
 
