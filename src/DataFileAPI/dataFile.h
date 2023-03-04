@@ -32,7 +32,7 @@ enum writeStatus writeRoot(FILE* fp, uint64_t* seq, size_t size);
 enum writeStatus writeTreeSchema(FILE* fp, struct treeSchema* schema);
 enum writeStatus writeNode(FILE* fp, struct keyNode* node, size_t size);
 
-enum writeStatus initEmptyFile(FILE* fp, char** template, enum dataType* types, size_t templateSize, size_t* attrSizes);
+enum writeStatus initEmptyFile(FILE* fp, char** template, uint32_t* types, size_t templateSize, size_t* attrSizes);
 
 //to osFile?
 enum openStatus openForse(FILE** fp, char* filename);

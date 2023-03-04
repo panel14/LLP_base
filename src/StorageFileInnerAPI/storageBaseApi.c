@@ -6,12 +6,12 @@ enum crudStatus deleteLastNode(FILE* fp, size_t nodeSize) {
 	return ftruncate(fd, ftell(fp));
 }
 
-void getTypes(FILE* fp, enum dataType** types, size_t* size) {
+void getTypes(FILE* fp, uint32_t** types, size_t* size) {
     fseek(fp, 0, SEEK_SET);
     struct treeSchema* schema = malloc(SCHEMA_SIZE);
     readTreeSchema(schema, fp);
     
-    enum dataType* tmpTypes = malloc(schema->meta->templateSize * sizeof(enum dataType));
+    uint32_t* tmpTypes = malloc(schema->meta->templateSize * sizeof(uint32_t));
 
     for (size_t i = 0; i < schema->meta->templateSize; i++) {
         tmpTypes[i] = schema->nodesTemplate[i]->header->type;
@@ -46,7 +46,7 @@ enum crudStatus getIdOffset(FILE* fp, uint64_t* id, uint64_t offset) {
 }
 
 enum crudStatus linkSton(FILE* fp, struct keyNode* node, uint64_t offset) {
-    enum dataType* types;
+    uint32_t* types;
     size_t size;
     getTypes(fp, &types, &size);
 
@@ -67,7 +67,7 @@ enum crudStatus linkSton(FILE* fp, struct keyNode* node, uint64_t offset) {
 }
 
 enum crudStatus swapNode(FILE* fp, uint64_t dest, uint64_t src, size_t nodeSize) {
-	enum dataType* types;
+	uint32_t* types;
 	size_t size;
     getTypes(fp, &types, &size);
 
@@ -146,7 +146,7 @@ enum crudStatus swapNode(FILE* fp, uint64_t dest, uint64_t src, size_t nodeSize)
 }
 
 enum crudStatus swapLastNode(FILE* fp, uint64_t dest, size_t nodeSize) {
-    enum dataType* types;
+    uint32_t* types;
     size_t size;
     getTypes(fp, &types, &size);
 

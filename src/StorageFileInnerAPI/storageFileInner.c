@@ -19,7 +19,7 @@ static void appendToResultSet(struct keyNode** addedNodes, uint64_t id, struct r
 }
 
 size_t addNode(FILE* fp, uint64_t* values, uint64_t parent) {
-	enum dataType* types;
+	uint32_t* types;
     size_t size;
     getTypes(fp, &types, &size);
 
@@ -89,7 +89,7 @@ enum crudStatus getNode(FILE* fp, uint64_t** values, uint64_t id) {
 }
 
 enum crudStatus removeNode(FILE* fp, uint64_t id, uint8_t strFlag) {
-    enum dataType* types;
+    uint32_t* types;
     size_t size;
     getTypes(fp, &types, &size);
     //    printf("%lu\n", id);
@@ -154,7 +154,7 @@ enum crudStatus findByParent(FILE* fp, uint64_t parent, struct resultSetNode** r
 }
 
 enum crudStatus findByField(FILE* fp, uint64_t fieldNumber, uint64_t* condition, struct resultSetNode** resultSet) {
-    enum dataType* types;
+    uint32_t* types;
     size_t size;
     getTypes(fp, &types, &size);
 
@@ -188,7 +188,7 @@ enum crudStatus findByField(FILE* fp, uint64_t fieldNumber, uint64_t* condition,
 }
 
 enum crudStatus updateNode(FILE* file, uint64_t fieldNumber, uint64_t* newValue, uint64_t id) {
-    enum dataType* types;
+    uint32_t* types;
     size_t size;
     getTypes(file, &types, &size);
 
@@ -223,7 +223,7 @@ void printNodesFrom(FILE* fp) {
     struct treeSchema schema;
     readTreeSchema(&schema, fp);
 
-    enum dataType* types;
+    uint32_t* types;
     size_t size;
     getTypes(fp, &types, &size);
 

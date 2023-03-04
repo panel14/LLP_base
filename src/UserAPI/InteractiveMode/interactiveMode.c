@@ -55,7 +55,7 @@ void start(FILE* fp) {
     readTreeSchema(schema, fp);
 
     templateSize = schema->meta->templateSize;
-    enum dataType* types= malloc(sizeof(enum dataType) * templateSize);
+    uint32_t* types= malloc(sizeof(uint32_t) * templateSize);
     char** attrNames = malloc(sizeof(char*) * templateSize);
 
     for (int i = 0; i < templateSize; i++) {

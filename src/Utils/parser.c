@@ -9,7 +9,7 @@ void parseFile(FILE* to, FILE* from) {
 	readTreeSchema(schema, to);
 
 	templateSize = schema->meta->templateSize;
-	enum dataType* types = malloc(sizeof(enum dataType) * templateSize);
+	uint32_t* types = malloc(sizeof(uint32_t) * templateSize);
 	char** attrNames = malloc(sizeof(char *) * templateSize);
 
 	for (int i = 0; i < templateSize; i++) {

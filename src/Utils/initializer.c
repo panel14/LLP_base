@@ -13,7 +13,7 @@ static void copyStr(char* src, char* dest, size_t srcSize, size_t destSize) {
 	while (destSize-- && srcSize--) *(dest++) = *(src++);
 }
 
-static void createEmptyAttrTemplate(struct nodeAttributeInfo** attrs, char** template, enum dataType* types, size_t templateSize, size_t* attrSizes) {
+static void createEmptyAttrTemplate(struct nodeAttributeInfo** attrs, char** template, uint32_t* types, size_t templateSize, size_t* attrSizes) {
 	struct nodeAttributeInfo* tempAttr;
 	size_t realSize;
 
@@ -31,7 +31,7 @@ static void createEmptyAttrTemplate(struct nodeAttributeInfo** attrs, char** tem
 	}
 }
 
-void createEmptyTreeSchema(char** template, enum dataType* types, size_t templateSize, size_t* attrSizes, struct treeSchema* schema) {
+void createEmptyTreeSchema(char** template, uint32_t* types, size_t templateSize, size_t* attrSizes, struct treeSchema* schema) {
 	schema->meta = malloc(META_SIZE);
 	createEmptyTreeMeta(schema->meta, templateSize);
 

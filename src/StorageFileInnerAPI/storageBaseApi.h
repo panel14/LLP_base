@@ -10,7 +10,7 @@ enum crudStatus {
 	CRUD_FAIL
 };
 
-void getTypes(FILE* fp, enum dataType** types, size_t* size);
+void getTypes(FILE* fp, uint32_t** types, size_t* size);
 
 enum crudStatus getIdOffset(FILE* fp, uint64_t* id, uint64_t offset);
 enum crudStatus deleteLastNode(FILE* fp, size_t nodeSize);

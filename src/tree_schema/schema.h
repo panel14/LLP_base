@@ -6,13 +6,10 @@
 #define ATTR_INFO_SIZE sizeof(struct nodeAttributeInfo)
 #define SCHEMA_SIZE sizeof(struct treeSchema)
 
-enum dataType {
-
-	INT = 0,
-	FLOAT,
-	STRING,
-	BOOL
-};
+#define INT 0
+#define FLOAT 1
+#define STRING 2
+#define BOOL 3
 
 struct treeMeta {
 	uint64_t ASCIISign;
@@ -26,7 +23,7 @@ struct treeMeta {
 #pragma pack(push, 4)
 struct attributeHeader {
 	uint32_t size;
-	enum dataType type;
+	uint32_t type;
 };
 struct nodeAttributeInfo {
 	struct attributeHeader* header;

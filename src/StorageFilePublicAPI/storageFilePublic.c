@@ -11,7 +11,7 @@ int storageOpenOrCreateFile(char* filename, char* mode, FILE** fp) {
 	return 1;
 }
 
-void storageRetriveNode(FILE* fp, char** argv, size_t templateSize, const enum dataType* templateTypes, char** templateNames, size_t count) {
+void storageRetriveNode(FILE* fp, char** argv, size_t templateSize, const uint32_t* templateTypes, char** templateNames, size_t count) {
 	struct resultSetNode* resultSet = NULL;
 
 	if (strcmp(argv[1], "parent") == 0) {
@@ -38,7 +38,7 @@ void storageRetriveNode(FILE* fp, char** argv, size_t templateSize, const enum d
 
 			if (fIdx == -1) printf("Field does not exist: %s\n", argv[2]);
 			else {
-				enum dataType type = templateTypes[fIdx];
+				uint32_t type = templateTypes[fIdx];
 				switch (type)
 				{
 				case INT:
@@ -143,7 +143,7 @@ void storageRetriveNode(FILE* fp, char** argv, size_t templateSize, const enum d
 		printf("No result present\n");
 }
 
-enum storageOp storageInsertNode(FILE* fp, char** str, size_t templateSize, const enum dataType* templateTypes, char** templateNames) {
+enum storageOp storageInsertNode(FILE* fp, char** str, size_t templateSize, const uint32_t* templateTypes, char** templateNames) {
 	char** attrNames;
 	size_t count;
 	uint64_t fields[templateSize];
@@ -225,7 +225,7 @@ enum storageOp storageInsertNode(FILE* fp, char** str, size_t templateSize, cons
 	return SUCCESS;
 }
 
-enum storageOp storageUpdateNode(FILE* fp, char** str, size_t templateSize, const enum dataType* templateTypes, char** templateNames, size_t fieldsCount) {
+enum storageOp storageUpdateNode(FILE* fp, char** str, size_t templateSize, const uint32_t* templateTypes, char** templateNames, size_t fieldsCount) {
 	char** attrNames;
 	size_t count;
 	uint64_t value;

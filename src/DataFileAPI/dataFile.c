@@ -153,7 +153,7 @@ enum writeStatus writeTreeSchema(FILE* fp, struct treeSchema* schema) {
 	return ret;
 }
 
-enum writeStatus initEmptyFile(FILE* fp, char** template, enum dataType* types, size_t templateSize, size_t* attrSizes) {
+enum writeStatus initEmptyFile(FILE* fp, char** template, uint32_t* types, size_t templateSize, size_t* attrSizes) {
 	fseek(fp, 0, SEEK_SET);
 	struct treeSchema* schema = malloc(SCHEMA_SIZE);
 	createEmptyTreeSchema(template, types, templateSize, attrSizes, schema);

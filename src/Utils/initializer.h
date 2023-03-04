@@ -3,4 +3,4 @@
 #include <stdlib.h>
 #include "../DataFileAPI/dataFile.h"
 
-void createEmptyTreeSchema(char** template, enum dataType* types, size_t templateSize, size_t* attrSizes, struct treeSchema* schema);
+void createEmptyTreeSchema(char** template, uint32_t* types, size_t templateSize, size_t* attrSizes, struct treeSchema* schema);
