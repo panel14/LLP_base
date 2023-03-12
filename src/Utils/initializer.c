@@ -6,7 +6,7 @@ static void createEmptyTreeMeta(struct treeMeta* meta, size_t size) {
 	meta->secondSeq = 0;
 	meta->templateSize = (uint64_t)size;
 	meta->curId = 0;
-	meta->rootOffset;
+	meta->rootOffset = 0;
 }
 
 static void copyStr(char* src, char* dest, size_t srcSize, size_t destSize) {
@@ -24,7 +24,7 @@ static void createEmptyAttrTemplate(struct nodeAttributeInfo** attrs, char** tem
 		copyStr(*template, appendedString, *attrSizes, realSize);
 
 		tempAttr->attributeName = appendedString;
-		tempAttr->header = malloc(sizeof(ATTR_HEAD_SIZE));
+		tempAttr->header = malloc(ATTR_HEAD_SIZE);  //<--- Исправить на linuxe
 		tempAttr->header->size = (uint32_t)realSize;
 		tempAttr->header->type = *types;
 		*attrs = tempAttr;

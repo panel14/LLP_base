@@ -49,7 +49,7 @@ size_t getIdArraySize(uint64_t attrSize, uint64_t curId) {
 
 	size_t whole = (curId * OFFSET / realNodeSize);
 	size_t frac = (curId * OFFSET % realNodeSize ? 1 : 0);
-	size_t value = max((frac * whole) * realNodeSize / OFFSET, MIN_ID_ARRAY_SIZE * realNodeSize / OFFSET);
+	size_t value = max((frac + whole) * realNodeSize / OFFSET, MIN_ID_ARRAY_SIZE * realNodeSize / OFFSET);
 
 	return value;
 }

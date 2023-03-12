@@ -17,7 +17,7 @@ void initFile(FILE* fp) {
     size_t* sizes = malloc(count * sizeof(size_t));
     size_t temp_size;
     for (size_t iter = 0; iter < count; iter++) {
-        printf("<---- Attribute N%-3zu ---->\n", iter);
+        printf("<---- Attribute %-3zu ---->\n", iter);
         str = malloc(INPUT_SIZE);
         printf("Attribute name: ");
         scanf("%s", str);

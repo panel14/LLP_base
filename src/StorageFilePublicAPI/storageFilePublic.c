@@ -210,6 +210,7 @@ enum storageOp storageInsertNode(FILE* fp, char** str, size_t templateSize, cons
 			default:
 				break;
 		}
+		pPos = -1;
 		free(attrNames);
 	}
 

@@ -150,7 +150,7 @@ enum crudStatus swapLastNode(FILE* fp, uint64_t dest, size_t nodeSize) {
     size_t size;
     getTypes(fp, &types, &size);
 
-    fseek(fp, (long) -(getRealNodeSize(size)) + NODE_HEAD_SIZE, SEEK_SET);
+    fseek(fp, (long) -(getRealNodeSize(size) + NODE_HEAD_SIZE), SEEK_SET);
     uint64_t src = ftell(fp);
 
     free(types);
@@ -167,7 +167,7 @@ enum crudStatus insertNode(FILE* fp, struct keyNode* node, size_t fullNodeSize, 
     ftruncate(fd, ftell(fp) + fullNodeSize);
 
     enum writeStatus ret = writeNode(fp, node, fullNodeSize - NODE_HEAD_SIZE);
-    return (ret == WRITE_SUCCESS) ? CRUD_SUCCESS : CRUD_FAIL;
+    return ret == WRITE_SUCCESS ? CRUD_SUCCESS : CRUD_FAIL;
 }
 
 enum crudStatus insertNodeStr(FILE* fp, char* string, size_t nodeSize, uint64_t* strPos) {
