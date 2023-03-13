@@ -1,9 +1,7 @@
 #pragma once
 #include <stdio.h>
 #include <stdbool.h>
-//?
 #include <stddef.h>
-
 #include "../StorageFileInnerAPI/storageFileInner.h"
 #include "../Utils/sstring.h"
 

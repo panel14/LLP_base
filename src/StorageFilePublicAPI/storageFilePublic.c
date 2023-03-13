@@ -216,13 +216,6 @@ enum storageOp storageInsertNode(FILE* fp, char** str, size_t templateSize, cons
 
 	addNode(fp, fields, strtol(str[1], NULL, 10));
 
-//  TIME CHECK;
-//    clock_t begin = clock();
-//    struct result_list_tuple *result = NULL;
-//    find_by_parent(f, 0, &result);
-//    clock_t end = clock();
-//    printf("%f\n", (double)(end - begin) / CLOCKS_PER_SEC);
-
 	return SUCCESS;
 }
 

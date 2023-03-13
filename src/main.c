@@ -1,6 +1,7 @@
 #include "StorageFilePublicAPI/storageFilePublic.h"
 #include "UserAPI/InteractiveMode/interactiveMode.h"
 #include "Utils/parser.h"
+#include "UserAPI/TestingMode/storageTest.h"
 
 int main(int argc, char** argv) {
 	char* filename;
@@ -45,6 +46,16 @@ int main(int argc, char** argv) {
 		parseFile(fp, parsed);
 		break;
 
+	case 't':
+		storageOpenOrCreateFile(v, "r", &parsed);
+
+		storageOpenOrCreateFile(filename, "w", &fp);
+		storageCloseFile(fp);
+		storageOpenOrCreateFile(filename, "r+b", &fp);
+
+		initFile(fp);
+		getTestTime(fp, parsed, "insert", "insertTest.txt");
+		break;
 	default:
 		printf("unknown");
 		break;

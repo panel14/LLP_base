@@ -42,7 +42,6 @@ enum crudStatus getIdOffset(FILE* fp, uint64_t* id, uint64_t offset) {
         freeNode(node);
         return CRUD_FAIL;
     }
-    //comment here
 }
 
 enum crudStatus linkSton(FILE* fp, struct keyNode* node, uint64_t offset) {
@@ -120,14 +119,11 @@ enum crudStatus swapNode(FILE* fp, uint64_t dest, uint64_t src, size_t nodeSize)
                         break;
                     }
                 }
-
-                //                printf("PARENT\n data[1]: %lu data[0]: %lu\n", parent->data[1], parent->data[0]);
                 fseek(fp, (node->header.prevNode), SEEK_SET);
                 writeNode(fp, parent, getRealNodeSize(size));
                 freeNode(parent);
             }
             free(header);
-            //            printf("STRING\n next: %lu, prev: %lu, pos_from: %lu, pos_to: %lu\n", tpl->header.next, tpl->header.prev, pos_from, pos_to);
         }
         else
         {
@@ -196,7 +192,6 @@ enum crudStatus insertNodeStr(FILE* fp, char* string, size_t nodeSize, uint64_t*
         tmpNode->data = (uint64_t*)(tmpData + nodeSize * i);
         insertNode(fp, tmpNode, nodeSize + NODE_HEAD_SIZE, &fakePos);
     }
-    //??? freeNode(tmpNode)
     free(tmpNode);
     return CRUD_SUCCESS;
 }
@@ -207,8 +202,6 @@ size_t appendToIdArray(FILE* fp, uint64_t offset) {
     readTreeSchema(schema, fp);
 
     uint64_t src = ftell(fp);
-    //    printf("%lu %zu\n", header->subheader->cur_id, get_id_array_size(header->subheader->pattern_size, header->subheader->cur_id));
-    //    printf("%lu %zu\n", header->subheader->cur_id, get_id_array_size(header->subheader->pattern_size, header->subheader->cur_id));
     uint64_t realNodeSize = getIdArraySize(schema->meta->templateSize, schema->meta->curId);
     if (!((schema->meta->curId + 1) % realNodeSize)) {
         fseek(fp, 0, SEEK_END);
@@ -293,17 +286,6 @@ enum crudStatus convOtoI(FILE* fp, uint64_t* id, uint64_t offset) {
     freeNode(node);
 
     return ret;
-
-
-    //    for (size_t iter = 0; iter < header->subheader->cur_id; iter++) {
-    //        if (header->id_sequence[iter] == offset) {
-    //            *id = iter;
-    //            free_test(header);
-    //            return CRUD_OK;
-    //        }
-    //    }
-    //    free_test_tree_header(header);
-    //    return CRUD_INVALID;
 }
 
 enum crudStatus changeStrNode(FILE* fp, uint64_t offset, char* newStr, uint64_t size) {

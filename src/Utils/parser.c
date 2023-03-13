@@ -19,13 +19,21 @@ void parseFile(FILE* to, FILE* from) {
 
 	fgets(line, INPUT_SIZE, from);
 
+	size_t iCount = 1;
+
 	while (!feof(from)) {
 		if (strlen(line) == 0) break;
 		line[strlen(line) - 1] = '\0';
 		char* prefix = concat("add ", line);
 		split(prefix, ' ', &args);
 
+
+		clock_t begin = clock();
 		storageInsertNode(to, args, templateSize, types, attrNames);
+		clock_t end = clock();
+
+		printf("%zu %f\n", iCount++, (double)(end - begin) / CLOCKS_PER_SEC);
+
 		free(prefix);
 		free(args);
 		fgets(line, INPUT_SIZE, from);
