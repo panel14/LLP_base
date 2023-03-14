@@ -54,7 +54,8 @@ if __name__ == '__main__':
               "Possible types: string, int, float, bool\n"
               "<output> - name of output file with extension")
         exit(0)
-    for param in sys.argv[2:]:
+    length = len(sys.argv) - 1
+    for param in sys.argv[2:length]:
         key_value = param.split('=')
         if len(key_value) != 2:
             print("Wrong input")
@@ -63,9 +64,8 @@ if __name__ == '__main__':
         else:
             print("Wrong type")
 
-    with open(sys.argv[3], 'w') as f:
+    with open(sys.argv[length], 'w') as f:
         for i in range(int(sys.argv[1])):
             f.write(generate_item(types, parents)[:-1])
             parents.append(i)
             f.write("\n")
-            print("Successful!")

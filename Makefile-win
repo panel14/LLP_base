@@ -4,7 +4,7 @@ BUILDDIR=build
 SRCDIR=src
 TARGETDIR=.
 
-#SOURCES=C:\Users\verzz\source\repos\LLP_base\LLP_base\src\main.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\DataFileAPI\dataFile.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\OSFileAPI\osFile.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\StorageFileInnerAPI\storageBaseApi.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\StorageFileInnerAPI\storageFileInner.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\StorageFilePublicAPI\storageFilePublic.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\UserAPI\InteractiveMode\interactiveMode.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\Utils\initializer.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\Utils\parser.c C:\Users\verzz\source\repos\LLP_base\LLP_base\src\Utils\sstring.c
+#SOURCES=F:\Учеба\3 курс\LLP\lab1\main\src\main.c F:\Учеба\3 курс\LLP\lab1\main\src\DataFileAPI\dataFile.c F:\Учеба\3 курс\LLP\lab1\main\src\OSFileAPI\osFile.c F:\Учеба\3 курс\LLP\lab1\main\src\StorageFileInnerAPI\storageBaseApi.c F:\Учеба\3 курс\LLP\lab1\main\src\StorageFileInnerAPI\storageFileInner.c F:\Учеба\3 курс\LLP\lab1\main\src\StorageFilePublicAPI\storageFilePublic.c F:\Учеба\3 курс\LLP\lab1\main\src\UserAPI\InteractiveMode\interactiveMode.c F:\Учеба\3 курс\LLP\lab1\main\src\Utils\initializer.c F:\Учеба\3 курс\LLP\lab1\main\src\Utils\parser.c F:\Учеба\3 курс\LLP\lab1\main\src\Utils\sstring.c
 SOURCES=$(wildcard src/*.c) $(wildcard src/*/*.c) $(wildcard src/*/*/*.c) $(wildcard src/*/*/*/*.c)
 EXECUTABLE=main
 

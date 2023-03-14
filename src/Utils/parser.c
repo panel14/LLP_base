@@ -28,11 +28,11 @@ void parseFile(FILE* to, FILE* from) {
 		split(prefix, ' ', &args);
 
 
-		clock_t begin = clock();
+		//clock_t begin = clock();
 		storageInsertNode(to, args, templateSize, types, attrNames);
-		clock_t end = clock();
+		//clock_t end = clock();
 
-		printf("%zu %f\n", iCount++, (double)(end - begin) / CLOCKS_PER_SEC);
+		//printf("%zu %f\n", iCount++, (double)(end - begin) / CLOCKS_PER_SEC);
 
 		free(prefix);
 		free(args);

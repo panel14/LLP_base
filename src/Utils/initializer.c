@@ -24,7 +24,7 @@ static void createEmptyAttrTemplate(struct nodeAttributeInfo** attrs, char** tem
 		copyStr(*template, appendedString, *attrSizes, realSize);
 
 		tempAttr->attributeName = appendedString;
-		tempAttr->header = malloc(ATTR_HEAD_SIZE);  //<--- Исправить на linuxe
+		tempAttr->header = malloc(ATTR_HEAD_SIZE);
 		tempAttr->header->size = (uint32_t)realSize;
 		tempAttr->header->type = *types;
 		*attrs = tempAttr;
